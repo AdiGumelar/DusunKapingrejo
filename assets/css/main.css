@@ -67,6 +67,536 @@ body {
   font-family: var(--default-font);
 }
 
+/* Prayer schedule */
+.prayer-schedule {
+  padding: 28px 0 12px;
+}
+
+.prayer-schedule__panel {
+  overflow: hidden;
+  border: 1px solid rgba(17, 101, 48, 0.12);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgba(26, 72, 45, 0.1);
+}
+
+.prayer-schedule__intro {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  color: #fff;
+  background: linear-gradient(120deg, #116530, #2ea359);
+}
+
+.prayer-schedule__icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 22px;
+}
+
+.prayer-schedule__eyebrow {
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.prayer-schedule h2 {
+  margin: 0;
+  color: #fff;
+  font-family: var(--heading-font);
+  font-size: 25px;
+}
+
+.prayer-schedule__location {
+  margin: 2px 0 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.prayer-schedule__date {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.prayer-schedule__times {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 10px;
+  background: #f8fbf8;
+}
+
+.prayer-time {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 13px 8px;
+  border-radius: 12px;
+  color: #486050;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.prayer-time + .prayer-time::before {
+  position: absolute;
+  top: 22%;
+  bottom: 22%;
+  left: 0;
+  width: 1px;
+  background: #dce9df;
+  content: "";
+}
+
+.prayer-time > i {
+  color: var(--accent-color);
+  font-size: 19px;
+}
+
+.prayer-time > span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.prayer-time > strong {
+  color: var(--heading-color);
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.prayer-time:hover {
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(17, 101, 48, 0.12);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 767px) {
+  .prayer-schedule {
+    padding-top: 20px;
+  }
+
+  .prayer-schedule__intro {
+    flex-wrap: wrap;
+    padding: 18px;
+  }
+
+  .prayer-schedule__date {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .prayer-schedule__times {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prayer-time + .prayer-time::before {
+    display: none;
+  }
+
+  .prayer-time {
+    border: 1px solid #e4eee6;
+  }
+
+  .prayer-time:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* Vision and mission */
+.vision-mission {
+  padding: 72px 0 22px;
+}
+
+.vision-mission__heading {
+  margin-bottom: 30px;
+}
+
+.vision-mission__heading p,
+.vision-card__label,
+.mission-card__header p {
+  margin: 0 0 5px;
+  color: var(--accent-color);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.vision-mission__heading h2 {
+  margin: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-size: 32px;
+}
+
+.vision-card,
+.mission-card {
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.vision-card {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(145deg, #0d5729, #2ea359);
+  box-shadow: 0 15px 35px rgba(17, 101, 48, 0.2);
+}
+
+.vision-card::after {
+  position: absolute;
+  right: -48px;
+  bottom: -65px;
+  width: 190px;
+  height: 190px;
+  border: 28px solid rgba(255, 255, 255, 0.09);
+  border-radius: 50%;
+  content: "";
+}
+
+.vision-card__icon,
+.mission-card__icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 14px;
+  font-size: 21px;
+}
+
+.vision-card__icon {
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.vision-card__label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.vision-card h3,
+.mission-card h3 {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 27px;
+  line-height: 1.3;
+}
+
+.vision-card h3 {
+  color: #fff;
+}
+
+.vision-card__quote {
+  position: relative;
+  z-index: 1;
+  margin: 20px 0 0;
+  font-size: 15px;
+  line-height: 1.8;
+  opacity: 0.93;
+}
+
+.mission-card {
+  border: 1px solid #e1ece3;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(31, 73, 47, 0.08);
+}
+
+.mission-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5eee7;
+}
+
+.mission-card__icon {
+  flex: 0 0 48px;
+  background: #e8f5eb;
+  color: var(--accent-color);
+}
+
+.mission-card__header p {
+  margin-bottom: 2px;
+}
+
+.mission-card h3 {
+  color: var(--heading-color);
+  font-size: 22px;
+}
+
+.mission-list {
+  display: grid;
+  gap: 14px;
+  margin: 21px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: mission;
+}
+
+.mission-list li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.mission-list li::before {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  grid-row: span 2;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8f5eb;
+  color: var(--accent-color);
+  content: counter(mission, decimal-leading-zero);
+  counter-increment: mission;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.mission-list strong {
+  color: var(--heading-color);
+  font-size: 14px;
+}
+
+.mission-list span {
+  color: color-mix(in srgb, var(--default-color), transparent 27%);
+}
+
+@media (max-width: 767px) {
+  .vision-mission {
+    padding-top: 52px;
+  }
+
+  .vision-mission__heading h2 {
+    font-size: 28px;
+  }
+
+  .vision-card,
+  .mission-card {
+    padding: 24px;
+  }
+}
+
+/* Village infographic */
+.village-infographic {
+  padding: 72px 0;
+  background: linear-gradient(180deg, #f7fbf8 0%, #fff 100%);
+}
+
+.activity-section-title {
+  scroll-margin-top: 100px;
+}
+
+.village-infographic__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.village-infographic__heading p {
+  margin: 0 0 5px;
+  color: var(--accent-color);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.village-infographic__heading h2 {
+  margin: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-size: 32px;
+}
+
+.village-infographic__heading > span {
+  padding: 9px 13px;
+  border: 1px solid #dbeadf;
+  border-radius: 50px;
+  color: #52735c;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.village-infographic__heading > span i {
+  margin-right: 5px;
+  color: var(--accent-color);
+}
+
+.infographic-card,
+.family-stat {
+  border: 1px solid #e1ece3;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(31, 73, 47, 0.07);
+}
+
+.infographic-card {
+  padding: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.infographic-card:hover {
+  box-shadow: 0 16px 35px rgba(31, 73, 47, 0.12);
+  transform: translateY(-4px);
+}
+
+.infographic-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.infographic-card__icon,
+.family-stat__icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  place-items: center;
+  border-radius: 12px;
+  background: #e8f5eb;
+  color: var(--accent-color);
+  font-size: 19px;
+}
+
+.infographic-card h3 {
+  margin: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-size: 22px;
+}
+
+.infographic-card p {
+  margin: 2px 0 0;
+  color: #718178;
+  font-size: 12px;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 245px;
+}
+
+.chart-wrap canvas {
+  max-width: 100%;
+}
+
+.family-stat {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 326px;
+  padding: 30px;
+  color: #fff;
+  background: linear-gradient(145deg, #0d5729, #2ea359);
+  box-shadow: 0 14px 32px rgba(17, 101, 48, 0.2);
+  text-align: center;
+}
+
+.family-stat__pattern {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 35px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  top: -155px;
+  right: -80px;
+}
+
+.family-stat__icon,
+.family-stat p,
+.family-stat strong,
+.family-stat span,
+.family-stat small {
+  position: relative;
+  z-index: 1;
+}
+
+.family-stat__icon {
+  margin-bottom: 17px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.family-stat p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.family-stat strong {
+  margin-top: 5px;
+  font-family: var(--heading-font);
+  font-size: 68px;
+  line-height: 0.95;
+}
+
+.family-stat span {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.family-stat small {
+  margin-top: 17px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 12px;
+  opacity: 0.82;
+}
+
+@media (max-width: 767px) {
+  .village-infographic {
+    padding: 52px 0;
+  }
+
+  .village-infographic__heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .village-infographic__heading h2 {
+    font-size: 28px;
+  }
+
+  .infographic-card {
+    padding: 20px;
+  }
+
+  .chart-wrap {
+    height: 220px;
+  }
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;

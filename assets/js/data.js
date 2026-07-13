@@ -161,8 +161,8 @@ const pendidikanChart = new Chart(ctxPendidikan, {
       {
         label: "Jumlah Orang",
         data: jumlahPerKategoriPendidikan, // Data jumlah orang per kategori
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "rgba(54, 162, 235, 1)",
+        backgroundColor: "rgba(46, 163, 89, 0.25)",
+        borderColor: "rgba(17, 101, 48, 1)",
         borderWidth: 1,
       },
     ],
@@ -186,8 +186,8 @@ const genderChart = new Chart(ctxGender, {
       {
         label: "Jumlah Orang",
         data: jumlahPerKategoriGender, // Data jumlah orang berdasarkan gender
-        backgroundColor: ["rgba(75, 192, 192, 0.2)", "rgba(255, 99, 132, 0.2)"],
-        borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)"],
+        backgroundColor: ["rgba(46, 163, 89, 0.25)", "rgba(144, 197, 114, 0.35)"],
+        borderColor: ["rgba(17, 101, 48, 1)", "rgba(86, 142, 60, 1)"],
         borderWidth: 1,
       },
     ],
@@ -211,8 +211,8 @@ new Chart(pekerjaanCtx, {
       {
         label: "Jumlah",
         data: kategoriCount, // Menggunakan kategoriCount sebagai data
-        backgroundColor: "rgba(153, 102, 255, 0.6)",
-        borderColor: "rgba(153, 102, 255, 1)",
+        backgroundColor: "rgba(46, 163, 89, 0.55)",
+        borderColor: "rgba(17, 101, 48, 1)",
         borderWidth: 1,
       },
     ],
@@ -237,8 +237,8 @@ new Chart(usiaCtx, {
       {
         label: "Jumlah",
         data: rentangCount, // Menggunakan rentangCount sebagai data
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
-        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: "rgba(93, 170, 111, 0.58)",
+        borderColor: "rgba(35, 119, 58, 1)",
         borderWidth: 1,
       },
     ],
@@ -263,8 +263,8 @@ new Chart(agamaCtx, {
       {
         label: "Jumlah",
         data: agamaCount, // Menggunakan agamaCount sebagai data
-        backgroundColor: "rgba(255, 99, 132, 0.6)",
-        borderColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: "rgba(46, 163, 89, 0.55)",
+        borderColor: "rgba(17, 101, 48, 1)",
         borderWidth: 1,
       },
     ],

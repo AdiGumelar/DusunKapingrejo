@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -41,10 +41,6 @@
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -165,60 +161,39 @@
       <!-- /Hero Section -->
 
       <!-- Sholat Section -->
-      <div class="container mt-3" style="width: 90%">
-        <div class="row d-flex gap-2">
-          <div class="col-md-3 col-12 d-flex flex-column align-items-center gap-2 text-light py-3 py-md-0 justify-content-center align-items-md-start" style="background-color: #2ea359" data-aos="fade-up">
-            <div class="d-flex gap-2 align-items-center rotate-clock" data-aos="fade-up">
-              <!-- Jam dalam bentuk SVG -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="25" height="25" fill="white">
-                <!-- Outer Circle -->
-                <circle cx="50" cy="50" r="45" stroke="white" stroke-width="5" fill="none" />
-                <!-- Hour Hand -->
-                <line x1="50" y1="50" x2="50" y2="30" stroke="white" stroke-width="4" stroke-linecap="round" />
-                <!-- Minute Hand -->
-                <line x1="50" y1="50" x2="70" y2="50" stroke="white" stroke-width="3" stroke-linecap="round" />
-                <!-- Clock Center -->
-                <circle cx="50" cy="50" r="2" fill="white" />
-              </svg>
-              <div class="fw-bold">Jadwal Sholat Kab. Sleman</div>
+      <section class="prayer-schedule" aria-labelledby="prayer-schedule-title">
+        <div class="container">
+          <div class="prayer-schedule__panel">
+            <div class="prayer-schedule__intro" data-aos="fade-up">
+              <div class="prayer-schedule__icon"><i class="bi bi-moon-stars-fill"></i></div>
+              <div>
+                <p class="prayer-schedule__eyebrow">Waktu ibadah hari ini</p>
+                <h2 id="prayer-schedule-title">Jadwal Sholat</h2>
+                <p class="prayer-schedule__location"><i class="bi bi-geo-alt-fill"></i> Kabupaten Sleman</p>
+              </div>
+              <div class="prayer-schedule__date"><i class="bi bi-calendar3"></i><span class="date">Memuat tanggal...</span></div>
             </div>
-            <div class="d-flex gap-2 align-items-center" data-aos="fade-up" data-aos-delay="200">
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fafafa" viewBox="0 0 256 256">
-                <path
-                  d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"
-                ></path>
-              </svg>
-              <div class="fw-bold date">Tanggal</div>
+
+            <div class="prayer-schedule__times">
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="50">
+                <i class="bi bi-cloud-sun"></i><span>Subuh</span><strong class="subuh-time">--:--</strong>
+              </div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="100">
+                <i class="bi bi-sun"></i><span>Dzuhur</span><strong class="dzuhur-time">--:--</strong>
+              </div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="150">
+                <i class="bi bi-brightness-high"></i><span>Ashar</span><strong class="ashar-time">--:--</strong>
+              </div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-sunset"></i><span>Maghrib</span><strong class="maghrib-time">--:--</strong>
+              </div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="250">
+                <i class="bi bi-moon-stars"></i><span>Isya</span><strong class="isya-time">--:--</strong>
+              </div>
             </div>
-          </div>
-
-          <!-- Waktu Sholat dengan AOS Animasi -->
-          <div class="col-md col-12 border rounded border-animation d-flex flex-column align-items-center justify-content-center p-3" style="border-color: #2ea359 !important" data-aos="fade-up">
-            <div>Subuh</div>
-            <div class="subuh-time">18.00</div>
-          </div>
-
-          <div class="col-md col-12 border rounded border-animation d-flex flex-column align-items-center justify-content-center p-3" style="border-color: #2ea359 !important" data-aos="fade-up" data-aos-delay="100">
-            <div>Dzuhur</div>
-            <div class="dzuhur-time">18.00</div>
-          </div>
-
-          <div class="col-md col-12 border rounded border-animation d-flex flex-column align-items-center justify-content-center p-3" style="border-color: #2ea359 !important" data-aos="fade-up" data-aos-delay="200">
-            <div>Ashar</div>
-            <div class="ashar-time">18.00</div>
-          </div>
-
-          <div class="col-md col-12 border rounded border-animation d-flex flex-column align-items-center justify-content-center p-3" style="border-color: #2ea359 !important" data-aos="fade-up" data-aos-delay="300">
-            <div>Maghrib</div>
-            <div class="maghrib-time">18.00</div>
-          </div>
-
-          <div class="col-md col-12 border rounded border-animation d-flex flex-column align-items-center justify-content-center p-3" style="border-color: #2ea359 !important" data-aos="fade-up" data-aos-delay="400">
-            <div>Isya</div>
-            <div class="isya-time">18.00</div>
           </div>
         </div>
-      </div>
+      </section>
       <!-- /Sholat Section -->
 
       <!-- Mengenal Section -->
@@ -255,78 +230,107 @@
       <!-- /Mengenal Section -->
 
       <!-- Visi dan Misi Section -->
-      <div class="container mt-3 pt-lg-5">
-        <!-- Visi dan Misi dalam satu baris -->
-        <div class="row d-flex justify-content-center align-items-start gap-3">
-          <!-- Visi Section -->
-          <div class="col-md-5 col-12">
-            <div class="card h-100 border-0 shadow p-4" style="background-color: #2ea359; color: white">
-              <h2 class="fw-bold text-uppercase text-center text-dark">Visi</h2>
-              <p class="mt-3 text-center">"Mewujudkan Dusun Kapingrejo yang sejahtera, berdaya saing, serta berbasis gotong-royong dalam kehidupan sosial dan lingkungan."</p>
-            </div>
+      <section class="vision-mission" aria-labelledby="vision-mission-title">
+        <div class="container">
+          <div class="vision-mission__heading text-center">
+            <p>Landasan pembangunan dusun</p>
+            <h2 id="vision-mission-title">Visi &amp; Misi Kapingrejo</h2>
           </div>
+          <div class="row g-4 align-items-stretch">
+            <!-- Visi Section -->
+            <div class="col-lg-5" data-aos="fade-right">
+              <article class="vision-card h-100">
+                <div class="vision-card__icon"><i class="bi bi-stars"></i></div>
+                <p class="vision-card__label">Visi Kami</p>
+                <h3>Dusun yang tumbuh, mandiri, dan harmonis.</h3>
+                <p class="vision-card__quote">“Mewujudkan Dusun Kapingrejo yang sejahtera, berdaya saing, serta berbasis gotong-royong dalam kehidupan sosial dan lingkungan.”</p>
+              </article>
+            </div>
 
-          <!-- Misi Section -->
-          <div class="col-md-6 col-12">
-            <div class="card h-100 border-0 shadow p-4" style="background-color: #2ea359; color: white">
-              <h2 class="fw-bold text-uppercase text-center text-dark">Misi</h2>
-              <ul class="mt-3">
-                <li class="mb-3"><strong>Pemberdayaan Ekonomi:</strong> Mengembangkan potensi ekonomi lokal dengan memaksimalkan sumber daya alam dan manusia.</li>
-                <li class="mb-3"><strong>Peningkatan Pendidikan:</strong> Memfasilitasi dan mendorong pendidikan formal dan non-formal bagi seluruh masyarakat.</li>
-                <li class="mb-3"><strong>Pelestarian Budaya:</strong> Melestarikan nilai-nilai budaya lokal dan menjaga kebersamaan dalam kehidupan sosial.</li>
-                <li><strong>Pengembangan Sosial Remaja: </strong> Membina dan mengembangkan kegiatan positif untuk meningkatkan kreativitas, kemandirian, serta peran aktif remaja dalam pembangunan dusun.</li>
-              </ul>
+            <!-- Misi Section -->
+            <div class="col-lg-7" data-aos="fade-left" data-aos-delay="100">
+              <article class="mission-card h-100">
+                <div class="mission-card__header">
+                  <div class="mission-card__icon"><i class="bi bi-compass"></i></div>
+                  <div><p>Misi Kami</p><h3>Langkah nyata untuk dusun yang lebih baik</h3></div>
+                </div>
+                <ol class="mission-list">
+                  <li><strong>Pemberdayaan ekonomi</strong><span>Mengembangkan potensi ekonomi lokal melalui sumber daya alam dan manusia.</span></li>
+                  <li><strong>Peningkatan pendidikan</strong><span>Mendorong pendidikan formal dan non-formal bagi seluruh masyarakat.</span></li>
+                  <li><strong>Pelestarian budaya</strong><span>Menjaga nilai budaya lokal dan kebersamaan dalam kehidupan sosial.</span></li>
+                  <li><strong>Pengembangan remaja</strong><span>Membina kegiatan positif untuk kreativitas, kemandirian, dan peran aktif remaja.</span></li>
+                </ol>
+              </article>
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <!-- /Visi dan Misi Section -->
 
       <!-- Infografis Section -->
-      <div class="container mt-5" id="infografis">
-        <h2 class="text-center text-success fw-bold mb-5">Infografis Dusun Kapingrejo</h2>
-
-        <div class="row">
-          <!-- Grafik Pendidikan -->
-          <div class="col-md-6 col-sm-12 mb-4">
-            <h4 class="text-center">Pendidikan</h4>
-            <canvas id="pendidikanChart"></canvas>
+      <section class="village-infographic" id="infografis" aria-labelledby="infographic-title">
+        <div class="container">
+          <div class="village-infographic__heading">
+            <div>
+              <p>Data kependudukan</p>
+              <h2 id="infographic-title">Infografis Dusun Kapingrejo</h2>
+            </div>
+            <span><i class="bi bi-bar-chart-line-fill"></i> Gambaran warga dalam angka</span>
           </div>
 
-          <!-- Grafik Jenis Kelamin -->
-          <div class="col-md-6 col-sm-12 mb-4">
-            <h4 class="text-center">Jenis Kelamin</h4>
-            <canvas id="genderChart"></canvas>
+          <div class="row g-4">
+            <!-- Grafik Pendidikan -->
+            <div class="col-lg-6" data-aos="fade-up">
+              <article class="infographic-card h-100">
+                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-mortarboard-fill"></i></div><div><h3>Pendidikan</h3><p>Komposisi tingkat pendidikan warga</p></div></div>
+                <div class="chart-wrap"><canvas id="pendidikanChart"></canvas></div>
+              </article>
+            </div>
+
+            <!-- Grafik Jenis Kelamin -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="75">
+              <article class="infographic-card h-100">
+                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-people-fill"></i></div><div><h3>Jenis Kelamin</h3><p>Distribusi warga berdasarkan gender</p></div></div>
+                <div class="chart-wrap"><canvas id="genderChart"></canvas></div>
+              </article>
+            </div>
+
+            <!-- Grafik Pekerjaan -->
+            <div class="col-lg-6" data-aos="fade-up">
+              <article class="infographic-card h-100">
+                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-briefcase-fill"></i></div><div><h3>Pekerjaan</h3><p>Ragam mata pencaharian warga</p></div></div>
+                <div class="chart-wrap"><canvas id="pekerjaanChart"></canvas></div>
+              </article>
+            </div>
+
+            <!-- Grafik Usia -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="75">
+              <article class="infographic-card h-100">
+                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-person-hearts"></i></div><div><h3>Usia</h3><p>Sebaran kelompok usia warga</p></div></div>
+                <div class="chart-wrap"><canvas id="usiaChart"></canvas></div>
+              </article>
+            </div>
+
+            <!-- Grafik Agama -->
+            <div class="col-lg-6" data-aos="fade-up">
+              <article class="infographic-card h-100">
+                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-house-heart-fill"></i></div><div><h3>Agama</h3><p>Komposisi keyakinan warga</p></div></div>
+                <div class="chart-wrap"><canvas id="agamaChart"></canvas></div>
+              </article>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="75">
+              <article class="family-stat h-100">
+                <div class="family-stat__pattern"></div>
+                <div class="family-stat__icon"><i class="bi bi-houses-fill"></i></div>
+                <p>Jumlah Kartu Keluarga</p>
+                <strong>63</strong><span>KK</span>
+                <small>Terdata di Dusun Kapingrejo</small>
+              </article>
+            </div>
           </div>
         </div>
-
-        <div class="row">
-          <!-- Grafik Pekerjaan -->
-          <div class="col-md-6 col-sm-12 mb-4">
-            <h4 class="text-center">Pekerjaan</h4>
-            <canvas id="pekerjaanChart"></canvas>
-          </div>
-
-          <!-- Grafik Usia -->
-          <div class="col-md-6 col-sm-12 mb-4">
-            <h4 class="text-center">Usia</h4>
-            <canvas id="usiaChart"></canvas>
-          </div>
-        </div>
-
-        <div class="row">
-          <!-- Grafik Agama -->
-          <div class="col-md-6 col-sm-12 mb-4">
-            <h4 class="text-center">Agama</h4>
-            <canvas id="agamaChart"></canvas>
-          </div>
-
-          <div class="col-md-6 col-sm-12 mb-4 bg-success rounded d-flex flex-column align-items-center justify-content-center p-3">
-            <h2 class="text-white">Jumlah Kartu Keluarga (KK)</h2>
-            <h2 class="text-white">63 KK</h2>
-          </div>
-        </div>
-      </div>
+      </section>
 
       <!-- /Infografis Section -->
 
@@ -645,7 +649,7 @@
                   <div class="service-item">
                     <div class="service-item-contents">
                       <a href="#">
-                        <span class="service-item-category">ketua pkk</span>
+                        <span class="service-item-category">ketua kk</span>
                         <h2 class="service-item-title">Bu Supandri</h2>
                       </a>
                     </div>
@@ -719,7 +723,7 @@
       <!-- Recent Posts Section -->
       <section id="recent-posts" class="recent-posts section">
         <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up" id="kegiatandusun">
+        <div class="container section-title activity-section-title" data-aos="fade-up" data-aos-offset="0" id="kegiatandusun">
           <h3>Kegiatan di Dusun Kapingrejo</h3>
           <p style="font-size: 25px">Beragam Aktivitas dan Acara di Dusun Kami</p>
         </div>
@@ -727,7 +731,7 @@
         <div class="container">
           <div class="row gy-5">
             <div class="col-xl-4 col-md-6">
-              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+              <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets\img\Posyandu.jpeg" class="img-fluid" alt="Rapat Pemuda Dusun Kapingrejo" />
                   <!-- <span class="post-date">December 12</span> -->
@@ -745,7 +749,7 @@
             </div>
 
             <div class="col-xl-4 col-md-6">
-              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
+              <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets\img\TPA.jpeg" class="img-fluid" alt="" />
                 </div>
@@ -763,7 +767,7 @@
             </div>
             <!-- End post item -->
 
-            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets\img\Tirakatan.jpeg" class="img-fluid" alt="" />
@@ -783,7 +787,7 @@
             <!-- End post item -->
 
             <div class="col-xl-4 col-md-6">
-              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+              <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets\img\pkk.JPG" class="img-fluid" alt="Rapat Pemuda Dusun Kapingrejo" />
                   <!-- <span class="post-date">December 12</span> -->
@@ -801,7 +805,7 @@
             <!-- End post item -->
 
             <div class="col-xl-4 col-md-6">
-              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
+              <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets\img\Yasinan-prab.jpeg" class="img-fluid" alt="" />
                 </div>
@@ -818,7 +822,7 @@
             </div>
             <!-- End post item -->
 
-            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets\img\sholawatan.jpeg" class="img-fluid" alt="" />
@@ -837,7 +841,7 @@
             <!-- End post item -->
 
             <div class="col-xl-4 col-md-6">
-              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+              <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets/img/rapat pemuda.jpg" class="img-fluid" alt="Rapat Pemuda Dusun Kapingrejo" />
                   <!-- <span class="post-date">December 12</span> -->
@@ -855,7 +859,7 @@
             <!-- End post item -->
 
             <div class="col-xl-4 col-md-6">
-              <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
+              <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets/img/rapatbapak.jpg" class="img-fluid" alt="" />
                 </div>
@@ -869,7 +873,7 @@
             </div>
             <!-- End post item -->
 
-            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
                   <img src="assets/img/agustus.jpg" class="img-fluid" alt="" />
@@ -1022,10 +1026,8 @@
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
@@ -1077,7 +1079,5 @@
         .catch((error) => console.error("Error:", error));
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

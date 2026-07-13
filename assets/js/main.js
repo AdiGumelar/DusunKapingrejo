@@ -157,10 +157,4 @@
 
   window.addEventListener("load", initSwiper);
 
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: ".glightbox",
-  });
 })();

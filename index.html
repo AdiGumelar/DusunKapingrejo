@@ -54,14 +54,6 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- =======================================================
-  * Template Name: AgriCulture
-  * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
   </head>
 
   <body class="">
@@ -175,21 +167,11 @@
             </div>
 
             <div class="prayer-schedule__times">
-              <div class="prayer-time" data-aos="fade-up" data-aos-delay="50">
-                <i class="bi bi-cloud-sun"></i><span>Subuh</span><strong class="subuh-time">--:--</strong>
-              </div>
-              <div class="prayer-time" data-aos="fade-up" data-aos-delay="100">
-                <i class="bi bi-sun"></i><span>Dzuhur</span><strong class="dzuhur-time">--:--</strong>
-              </div>
-              <div class="prayer-time" data-aos="fade-up" data-aos-delay="150">
-                <i class="bi bi-brightness-high"></i><span>Ashar</span><strong class="ashar-time">--:--</strong>
-              </div>
-              <div class="prayer-time" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-sunset"></i><span>Maghrib</span><strong class="maghrib-time">--:--</strong>
-              </div>
-              <div class="prayer-time" data-aos="fade-up" data-aos-delay="250">
-                <i class="bi bi-moon-stars"></i><span>Isya</span><strong class="isya-time">--:--</strong>
-              </div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="50"><i class="bi bi-cloud-sun"></i><span>Subuh</span><strong class="subuh-time">--:--</strong></div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-sun"></i><span>Dzuhur</span><strong class="dzuhur-time">--:--</strong></div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="150"><i class="bi bi-brightness-high"></i><span>Ashar</span><strong class="ashar-time">--:--</strong></div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-sunset"></i><span>Maghrib</span><strong class="maghrib-time">--:--</strong></div>
+              <div class="prayer-time" data-aos="fade-up" data-aos-delay="250"><i class="bi bi-moon-stars"></i><span>Isya</span><strong class="isya-time">--:--</strong></div>
             </div>
           </div>
         </div>
@@ -252,7 +234,10 @@
               <article class="mission-card h-100">
                 <div class="mission-card__header">
                   <div class="mission-card__icon"><i class="bi bi-compass"></i></div>
-                  <div><p>Misi Kami</p><h3>Langkah nyata untuk dusun yang lebih baik</h3></div>
+                  <div>
+                    <p>Misi Kami</p>
+                    <h3>Langkah nyata untuk dusun yang lebih baik</h3>
+                  </div>
                 </div>
                 <ol class="mission-list">
                   <li><strong>Pemberdayaan ekonomi</strong><span>Mengembangkan potensi ekonomi lokal melalui sumber daya alam dan manusia.</span></li>
@@ -282,7 +267,13 @@
             <!-- Grafik Pendidikan -->
             <div class="col-lg-6" data-aos="fade-up">
               <article class="infographic-card h-100">
-                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-mortarboard-fill"></i></div><div><h3>Pendidikan</h3><p>Komposisi tingkat pendidikan warga</p></div></div>
+                <div class="infographic-card__header">
+                  <div class="infographic-card__icon"><i class="bi bi-mortarboard-fill"></i></div>
+                  <div>
+                    <h3>Pendidikan</h3>
+                    <p>Komposisi tingkat pendidikan warga</p>
+                  </div>
+                </div>
                 <div class="chart-wrap"><canvas id="pendidikanChart"></canvas></div>
               </article>
             </div>
@@ -290,7 +281,13 @@
             <!-- Grafik Jenis Kelamin -->
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="75">
               <article class="infographic-card h-100">
-                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-people-fill"></i></div><div><h3>Jenis Kelamin</h3><p>Distribusi warga berdasarkan gender</p></div></div>
+                <div class="infographic-card__header">
+                  <div class="infographic-card__icon"><i class="bi bi-people-fill"></i></div>
+                  <div>
+                    <h3>Jenis Kelamin</h3>
+                    <p>Distribusi warga berdasarkan gender</p>
+                  </div>
+                </div>
                 <div class="chart-wrap"><canvas id="genderChart"></canvas></div>
               </article>
             </div>
@@ -298,7 +295,13 @@
             <!-- Grafik Pekerjaan -->
             <div class="col-lg-6" data-aos="fade-up">
               <article class="infographic-card h-100">
-                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-briefcase-fill"></i></div><div><h3>Pekerjaan</h3><p>Ragam mata pencaharian warga</p></div></div>
+                <div class="infographic-card__header">
+                  <div class="infographic-card__icon"><i class="bi bi-briefcase-fill"></i></div>
+                  <div>
+                    <h3>Pekerjaan</h3>
+                    <p>Ragam mata pencaharian warga</p>
+                  </div>
+                </div>
                 <div class="chart-wrap"><canvas id="pekerjaanChart"></canvas></div>
               </article>
             </div>
@@ -306,7 +309,13 @@
             <!-- Grafik Usia -->
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="75">
               <article class="infographic-card h-100">
-                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-person-hearts"></i></div><div><h3>Usia</h3><p>Sebaran kelompok usia warga</p></div></div>
+                <div class="infographic-card__header">
+                  <div class="infographic-card__icon"><i class="bi bi-person-hearts"></i></div>
+                  <div>
+                    <h3>Usia</h3>
+                    <p>Sebaran kelompok usia warga</p>
+                  </div>
+                </div>
                 <div class="chart-wrap"><canvas id="usiaChart"></canvas></div>
               </article>
             </div>
@@ -314,7 +323,13 @@
             <!-- Grafik Agama -->
             <div class="col-lg-6" data-aos="fade-up">
               <article class="infographic-card h-100">
-                <div class="infographic-card__header"><div class="infographic-card__icon"><i class="bi bi-house-heart-fill"></i></div><div><h3>Agama</h3><p>Komposisi keyakinan warga</p></div></div>
+                <div class="infographic-card__header">
+                  <div class="infographic-card__icon"><i class="bi bi-house-heart-fill"></i></div>
+                  <div>
+                    <h3>Agama</h3>
+                    <p>Komposisi keyakinan warga</p>
+                  </div>
+                </div>
                 <div class="chart-wrap"><canvas id="agamaChart"></canvas></div>
               </article>
             </div>
@@ -895,32 +910,6 @@
 
       <!-- /Recent Posts Section -->
 
-      <!-- Call To Action Section -->
-      <!-- <section id="call-to-action" class="call-to-action section light-background">
-        <div class="content">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
-                <h3>Subscribe To Our Newsletter</h3>
-                <p class="opacity-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, reprehenderit!</p>
-              </div>
-              <div class="col-lg-6">
-                <form action="forms/newsletter.php" class="form-subscribe php-email-form">
-                  <div class="form-group d-flex align-items-stretch">
-                    <input type="email" name="email" class="form-control h-100" placeholder="Enter your e-mail" />
-                    <input type="submit" class="btn btn-secondary px-4" value="Subcribe" />
-                  </div>
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-      <!-- /Call To Action Section -->
-
       <!-- Denah -->
       <div id="petadusun" class="container pt-5">
         <div class="row justify-content-center">
@@ -1078,6 +1067,5 @@
         })
         .catch((error) => console.error("Error:", error));
     </script>
-
   </body>
 </html>

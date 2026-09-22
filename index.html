@@ -56,7 +56,7 @@
   </head>
 
   <body class="">
-    <header id="header" class="header d-flex align-items-center position-relative">
+    <header id="header" class="header d-flex align-items-center">
       <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
@@ -77,6 +77,7 @@
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
+        <a href="#sholat" class="nav-cta"><i class="bi bi-moon-stars-fill"></i> Jadwal Sholat</a>
       </div>
     </header>
 
@@ -85,10 +86,15 @@
       <section id="hero" class="hero section dark-background">
         <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
           <div class="carousel-item active">
-            <img src="assets/img\mengenal dusun .jpg" alt="" />
+            <img src="assets/img/mengenal dusun .jpg" alt="" />
             <div class="carousel-container">
+              <span class="hero-badge"><i class="bi bi-geo-alt-fill"></i> Dusun Kapingrejo · Turi, Sleman</span>
               <h2>Selamat Datang di Dusun Kapingrejo</h2>
               <p>Dusun yang asri dengan potensi alam dan pertanian, khususnya salak. Jelajahi keindahan alam dan kearifan lokal yang kami tawarkan.</p>
+              <div class="hero-actions">
+                <a href="#potensidusun" class="btn-hero btn-hero--primary">Jelajahi Potensi <i class="bi bi-arrow-right"></i></a>
+                <a href="#infografis" class="btn-hero btn-hero--ghost">Lihat Infografis</a>
+              </div>
             </div>
           </div>
           <!-- End Carousel Item -->
@@ -96,8 +102,13 @@
           <div class="carousel-item">
             <img src="assets/img/pengajian.jpg" alt="" />
             <div class="carousel-container">
+              <span class="hero-badge"><i class="bi bi-moon-stars-fill"></i> Kegiatan Keagamaan</span>
               <h2>Pengajian Maulid Nabi Muhammad Saw</h2>
               <p>Acara ini diadakan untuk memperingati kelahiran Nabi Muhammad SAW dengan tausiyah, pembacaan shalawat, dan doa bersama sebagai bentuk kecintaan umat Islam terhadap Rasulullah.</p>
+              <div class="hero-actions">
+                <a href="#kegiatandusun" class="btn-hero btn-hero--primary">Lihat Kegiatan <i class="bi bi-arrow-right"></i></a>
+                <a href="#kontak" class="btn-hero btn-hero--ghost">Hubungi Kami</a>
+              </div>
             </div>
           </div>
           <!-- End Carousel Item -->
@@ -105,11 +116,16 @@
           <div class="carousel-item">
             <img src="assets/img/haflah.jpg" alt="" />
             <div class="carousel-container">
+              <span class="hero-badge"><i class="bi bi-mortarboard-fill"></i> Pendidikan &amp; Keagamaan</span>
               <h2>Kegiatan Haflah Ihtitam Wattasyakur</h2>
               <p>
                 Acara ini diselenggarakan sebagai penutup kegiatan pembelajaran dan bentuk rasa syukur atas kelancaran proses belajar. Diisi dengan ceramah, doa bersama, serta penghargaan bagi para santri yang telah menyelesaikan masa
                 pendidikannya.
               </p>
+              <div class="hero-actions">
+                <a href="#potensidusun" class="btn-hero btn-hero--primary">Jelajahi Potensi <i class="bi bi-arrow-right"></i></a>
+                <a href="#perangkatdusun" class="btn-hero btn-hero--ghost">Perangkat Dusun</a>
+              </div>
             </div>
           </div>
           <!-- End Carousel Item -->
@@ -117,23 +133,33 @@
           <div class="carousel-item">
             <img src="assets/img/yayasan.jpg" alt="" />
             <div class="carousel-container">
+              <span class="hero-badge"><i class="bi bi-house-heart-fill"></i> Lembaga Dusun</span>
               <h2>Yayasan Miftahul Huda Kapingrejo</h2>
               <p>
                 Yayasan ini berfokus pada pengembangan pendidikan agama Islam dan kegiatan sosial di Dusun Kapingrejo. Melalui program pendidikan, pengajian, dan kegiatan kemasyarakatan, yayasan berperan aktif dalam meningkatkan
                 kesejahteraan dan spiritualitas masyarakat.
               </p>
+              <div class="hero-actions">
+                <a href="#kontak" class="btn-hero btn-hero--primary">Dukung Yayasan <i class="bi bi-arrow-right"></i></a>
+                <a href="#kegiatandusun" class="btn-hero btn-hero--ghost">Lihat Kegiatan</a>
+              </div>
             </div>
           </div>
           <!-- End Carousel Item -->
 
           <div class="carousel-item">
-            <img src="assets/img\maggot.jpeg" alt="" />
+            <img src="assets/img/maggot.jpeg" alt="" />
             <div class="carousel-container">
+              <span class="hero-badge"><i class="bi bi-people-fill"></i> Kolaborasi &amp; Pengabdian</span>
               <h2>Tim KKN UNY 17368 Tahun 2024</h2>
               <p>
                 Tim KKN UNY melakukan kegiatan di Dusun Kapingrejo yang di rancang dalam beragam program kerja, mulai dari kegiatan sosial, keagamaan, lingkungan, pembelajaran, teknologi, dan lain-lain. Harapanya dengan adanya Tim KKN UNY
                 ini dapat bermanfaat untuk Dusun Kapingrejo.
               </p>
+              <div class="hero-actions">
+                <a href="#profildusun" class="btn-hero btn-hero--primary">Kenali Dusun <i class="bi bi-arrow-right"></i></a>
+                <a href="#potensidusun" class="btn-hero btn-hero--ghost">Potensi Dusun</a>
+              </div>
             </div>
           </div>
           <!-- End Carousel Item -->
@@ -148,11 +174,12 @@
 
           <ol class="carousel-indicators"></ol>
         </div>
+        <div class="hero-scroll" aria-hidden="true"><span></span></div>
       </section>
       <!-- /Hero Section -->
 
       <!-- Sholat Section -->
-      <section class="prayer-schedule" aria-labelledby="prayer-schedule-title">
+      <section class="prayer-schedule" id="sholat" aria-labelledby="prayer-schedule-title">
         <div class="container">
           <div class="prayer-schedule__panel">
             <div class="prayer-schedule__intro" data-aos="fade-up">
@@ -187,7 +214,7 @@
 
           <!-- Konten Teks dengan AOS Fade-Left -->
           <div class="col-md-6">
-            <div class="p-4 bg-white rounded shadow-sm">
+            <div class="p-4 bg-white rounded shadow-sm info-card">
               <h2 class="text-success fw-bold mb-4">Mengenal Dusun Kapingrejo</h2>
               <p class="text-justify" style="line-height: 1.7; font-size: 1.1em">
                 Dusun Kapingrejo, yang terletak di Padukuhan Sempu, Desa Wonokerto, Kecamatan Turi, Kabupaten Sleman, adalah sebuah wilayah yang asri dan penuh potensi. Berada di bawah kaki Gunung Merapi, dusun ini dianugerahi tanah yang
@@ -338,7 +365,7 @@
                 <div class="family-stat__pattern"></div>
                 <div class="family-stat__icon"><i class="bi bi-houses-fill"></i></div>
                 <p>Jumlah Kartu Keluarga</p>
-                <strong>63</strong><span>KK</span>
+                <strong data-count="63">63</strong><span>KK</span>
                 <small>Terdata di Dusun Kapingrejo</small>
               </article>
             </div>
@@ -354,7 +381,7 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="assets/img\mutiara sallaca.jpeg" alt="Image " class="img-fluid img-overlap" data-aos="zoom-out" />
+                <img src="assets/img/mutiara sallaca.jpeg" alt="Image " class="img-fluid img-overlap" data-aos="zoom-out" />
               </div>
               <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="content-subtitle text-white opacity-50">POTENSI DUSUN</h3>
@@ -381,7 +408,7 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-6 mb-4 mb-lg-0 order-md-2">
-                <img src="assets/img\kambing.jpg" alt="Image " class="img-fluid img-overlap" data-aos="zoom-out" />
+                <img src="assets/img/kambing.jpg" alt="Image " class="img-fluid img-overlap" data-aos="zoom-out" />
               </div>
               <div class="col-lg-6 ml-auto order-md-1 d-lg-flex flex-lg-column align-items-lg-end" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="content-subtitle text-white opacity-50">POTENSI DUSUN</h3>
@@ -528,7 +555,7 @@
 
           <!-- Konten Teks dengan AOS Fade-Left -->
           <div class="col-md-6">
-            <div class="p-4 bg-white rounded shadow-sm">
+            <div class="p-4 bg-white rounded shadow-sm info-card">
               <h2 class="text-success fw-bold mb-4">Yayasan Miftahul Huda Kapingrejo</h2>
               <p class="text-justify" style="line-height: 1.7; font-size: 1.1em">
                 Yayasan Miftahul Huda Kapingrejo adalah sebuah lembaga pendidikan dan keagamaan yang berada di Dusun Kapingrejo, Sempu, Wonokerto, Turi, Sleman. Yayasan ini berfokus pada kegiatan pendidikan berbasis Islam, khususnya melalui
@@ -545,7 +572,14 @@
                   <div class="text-light">Whatsapp</div>
                 </button>
               </a>
-              <p style="font-weight: 500" class="mt-2">Bank BRI - 307401026005537 AN Yayasan Miftahul Huda Kapingrejo</p>
+              <div class="account-box mt-3">
+                <div>
+                  <span class="account-bank">Bank BRI</span>
+                  <strong>307401026005537</strong>
+                  <small>a.n. Yayasan Miftahul Huda Kapingrejo</small>
+                </div>
+                <button type="button" class="btn-copy" data-copy="307401026005537"><i class="bi bi-clipboard"></i><span>Salin</span></button>
+              </div>
             </div>
           </div>
         </div>
@@ -604,7 +638,14 @@
                 <li>Meningkatkan kegiatan sosial dan keagamaan</li>
               </ul>
               <a href="#" class="text-white btn-cta">Donasi Sekarang</a>
-              <p class="mt-4" style="font-weight: 500">Bank BPD - 046.231.000459 AN Masjid Tarbiyatussholihin</p>
+              <div class="account-box mt-4">
+                <div>
+                  <span class="account-bank">Bank BPD</span>
+                  <strong>046.231.000459</strong>
+                  <small>a.n. Masjid Tarbiyatussholihin</small>
+                </div>
+                <button type="button" class="btn-copy" data-copy="046231000459"><i class="bi bi-clipboard"></i><span>Salin</span></button>
+              </div>
             </div>
           </div>
         </div>
@@ -667,7 +708,7 @@
                         <h2 class="service-item-title">Bu Supandri</h2>
                       </a>
                     </div>
-                    <img src="assets/img\bu rt.jpeg" alt="Image" class="img-fluid" />
+                    <img src="assets/img/bu rt.jpeg" alt="Image" class="img-fluid" />
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -678,7 +719,7 @@
                         <h2 class="service-item-title">Pak Supandri</h2>
                       </a>
                     </div>
-                    <img src="assets/img\pak rt.jpeg" alt="Image" class="img-fluid" />
+                    <img src="assets/img/pak rt.jpeg" alt="Image" class="img-fluid" />
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -689,7 +730,7 @@
                         <h2 class="service-item-title">Pak Ridwan</h2>
                       </a>
                     </div>
-                    <img src="assets/img\Pak ridwan dukuh.jpeg" alt="Image" class="img-fluid" />
+                    <img src="assets/img/Pak ridwan dukuh.jpeg" alt="Image" class="img-fluid" />
                   </div>
                 </div>
 
@@ -701,7 +742,7 @@
                         <h2 class="service-item-title">Pak M Abdul Rosyid</h2>
                       </a>
                     </div>
-                    <img src="assets/img\pak rosyid potrait 3 .jpg" alt="Image" class="img-fluid" />
+                    <img src="assets/img/pak rosyid potrait 3 .jpg" alt="Image" class="img-fluid" />
                   </div>
                 </div>
 
@@ -713,7 +754,7 @@
                         <h2 class="service-item-title">Pak Wakidi</h2>
                       </a>
                     </div>
-                    <img src="assets/img\pak wakidi humas.jpeg" alt="Image" class="img-fluid" />
+                    <img src="assets/img/pak wakidi humas.jpeg" alt="Image" class="img-fluid" />
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -724,7 +765,7 @@
                         <h2 class="service-item-title">Pak Sumarjana</h2>
                       </a>
                     </div>
-                    <img src="assets/img\pak sumarjana.jpeg" alt="Image" class="img-fluid" />
+                    <img src="assets/img/pak sumarjana.jpeg" alt="Image" class="img-fluid" />
                   </div>
                 </div>
               </div>
@@ -739,7 +780,7 @@
         <!-- Section Title -->
         <div class="container section-title activity-section-title" data-aos="fade-up" data-aos-offset="0" id="kegiatandusun">
           <h3>Kegiatan di Dusun Kapingrejo</h3>
-          <p style="font-size: 25px">Beragam Aktivitas dan Acara di Dusun Kami</p>
+          <p>Beragam Aktivitas dan Acara di Dusun Kami</p>
         </div>
         <!-- End Section Title -->
         <div class="container">
@@ -747,7 +788,7 @@
             <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img\Posyandu.jpeg" class="img-fluid" alt="Rapat Pemuda Dusun Kapingrejo" />
+                  <img src="assets/img/Posyandu.jpeg" class="img-fluid" alt="Rapat Pemuda Dusun Kapingrejo" />
                   <!-- <span class="post-date">December 12</span> -->
                 </div>
 
@@ -765,7 +806,7 @@
             <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img\TPA.jpeg" class="img-fluid" alt="" />
+                  <img src="assets/img/TPA.jpeg" class="img-fluid" alt="" />
                 </div>
 
                 <div class="post-content d-flex flex-column">
@@ -784,7 +825,7 @@
             <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img\Tirakatan.jpeg" class="img-fluid" alt="" />
+                  <img src="assets/img/Tirakatan.jpeg" class="img-fluid" alt="" />
                 </div>
 
                 <div class="post-content d-flex flex-column">
@@ -803,7 +844,7 @@
             <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img\pkk.JPG" class="img-fluid" alt="Rapat Pemuda Dusun Kapingrejo" />
+                  <img src="assets/img/pkk.JPG" class="img-fluid" alt="Rapat Pemuda Dusun Kapingrejo" />
                   <!-- <span class="post-date">December 12</span> -->
                 </div>
 
@@ -821,7 +862,7 @@
             <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img\Yasinan-prab.jpeg" class="img-fluid" alt="" />
+                  <img src="assets/img/Yasinan-prab.jpeg" class="img-fluid" alt="" />
                 </div>
 
                 <div class="post-content d-flex flex-column">
@@ -839,7 +880,7 @@
             <div class="col-xl-4 col-md-6">
               <div class="post-item position-relative h-100">
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img\sholawatan.jpeg" class="img-fluid" alt="" />
+                  <img src="assets/img/sholawatan.jpeg" class="img-fluid" alt="" />
                 </div>
 
                 <div class="post-content d-flex flex-column">
@@ -1077,6 +1118,10 @@
             const el = document.querySelector(selector);
             if (el && time) el.textContent = time;
           });
+
+          if (window.KapingrejoUI) {
+            window.KapingrejoUI.markNextPrayer(timings);
+          }
         })
         .catch((error) => console.error("Error:", error));
     </script>

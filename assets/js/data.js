@@ -1,4 +1,15 @@
 // Data dari input
+// Konfigurasi global Chart.js agar selaras dengan tema modern
+if (window.Chart) {
+  Chart.defaults.font.family = "'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
+  Chart.defaults.font.size = 12;
+  Chart.defaults.color = "#5b7263";
+  Chart.defaults.plugins.legend.display = false;
+  Chart.defaults.elements.bar.borderRadius = 8;
+  Chart.defaults.elements.bar.borderSkipped = false;
+  Chart.defaults.elements.bar.borderWidth = 0;
+}
+
 const dataPendidikan = [
   5, 1, 4, 5, 5, 4, 5, 1, 1, 5, 4, 5, 4, 4, 1, 1, 1, 3, 3, 3, 8, 5, 3, 5, 3, 3, 3, 5, 4, 5, 5, 2, 5, 5, 5, 1, 2, 5, 2, 1, 5, 3, 5, 5, 5, 5, 3, 5, 5, 5, 5, 1, 5, 3, 5, 2, 1, 5, 5, 2, 1, 5, 5, 5, 5, 4, 2, 5, 5, 2, 4, 4, 5, 2, 7, 7, 3, 4, 3,
   2, 7, 8, 1, 5, 4, 2, 3, 5, 1, 3, 3, 5, 4, 3, 4, 4, 5, 5, 4, 2, 1, 5, 5, 1, 3, 3, 5, 5, 3, 2, 3, 3, 4, 5, 7, 1, 1, 5, 5, 1, 3, 3, 1, 5, 5, 5, 3, 5, 4, 5, 4, 5, 5, 5, 3, 1, 5, 5, 2, 1, 5, 5, 4, 3, 2, 1, 3, 3, 4, 4, 5, 5, 1, 5, 5, 1, 5, 8,

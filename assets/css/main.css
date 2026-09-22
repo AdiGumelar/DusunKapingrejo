@@ -12,9 +12,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Marcellus", sans-serif;
-  --nav-font: "Marcellus", sans-serif;
+  --default-font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Poppins", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -25,6 +25,33 @@
   --accent-color: #116530; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+
+  /* Brand palette extensions - turunan dari warna dasar agar tetap konsisten */
+  --brand-50: #f4faf6;
+  --brand-100: #e8f5eb;
+  --brand-200: #cfe9d7;
+  --brand-300: #9fd6b4;
+  --brand-500: #2ea359;
+  --brand-700: #116530;
+  --brand-900: #0b4a22;
+  --ink: #14261b;
+  --muted: #5b7263;
+
+  /* Radius scale */
+  --r-sm: 10px;
+  --r: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* Layered shadows */
+  --sh-sm: 0 4px 14px rgba(17, 101, 48, 0.06);
+  --sh-md: 0 14px 34px rgba(17, 101, 48, 0.1);
+  --sh-lg: 0 26px 55px rgba(17, 101, 48, 0.16);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 0.35s;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -2814,7 +2841,8 @@ section,
   animation: fadeIn 1.5s ease-in-out;
 }
 .container {
-  padding: 50px 15px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 @keyframes fadeIn {
   from {
@@ -2845,3 +2873,1173 @@ canvas {
   width: 100% !important;
   height: auto !important;
 }
+
+/* =============================================================
+   MODERN REDESIGN — Dusun Kapingrejo
+   Lapisan penyempurnaan tampilan. Palet dasar tetap dipertahankan
+   (hijau #116530 / #2ea359 / #0b4a22, putih, netral).
+   ============================================================= */
+
+/* ---------- 1. Base, tipografi & fokus ---------- */
+body {
+  color: var(--ink);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  color: var(--brand-900);
+  background: rgba(46, 163, 89, 0.28);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--brand-900);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(46, 163, 89, 0.5);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Jarak antar section lebih lega & konsisten */
+section,
+.section {
+  padding: 86px 0;
+}
+
+/* Offset agar target anchor tidak tertutup header sticky */
+#profildusun,
+#petadusun,
+#kontak {
+  scroll-margin-top: 92px;
+}
+
+/* ---------- 2. Tombol ---------- */
+.btn,
+.btn-success,
+.btn-cta,
+.btn-get-started {
+  font-family: var(--heading-font);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  border: 0;
+  border-radius: var(--r-pill);
+  padding: 12px 24px;
+  font-weight: 600;
+  box-shadow: var(--sh-sm);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), filter var(--dur) var(--ease);
+}
+
+.btn-success:hover,
+.btn-success:focus {
+  background: linear-gradient(135deg, var(--brand-900), var(--brand-700));
+  transform: translateY(-2px);
+  box-shadow: var(--sh-md);
+}
+
+.btn-success svg {
+  width: 22px !important;
+  height: 22px !important;
+  flex: 0 0 auto;
+}
+
+/* ---------- 3. Judul section (seragam) ---------- */
+.section-title {
+  color: var(--brand-900);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 26px;
+  padding-bottom: 0;
+  animation: none;
+}
+
+.section-title h2,
+.section-title h3 {
+  margin-bottom: 10px;
+  color: var(--brand-700);
+  font-size: clamp(13px, 1.5vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-title p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--brand-900);
+  font-family: var(--heading-font);
+  font-size: clamp(26px, 3.4vw, 40px) !important;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 22px auto 0;
+  border-radius: var(--r-pill);
+  background: linear-gradient(90deg, var(--brand-700), var(--brand-500));
+}
+
+/* Eyebrow pada heading kustom (visi-misi & infografis) */
+.vision-mission__heading p,
+.village-infographic__heading p {
+  color: var(--brand-700);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.vision-mission__heading h2,
+.village-infographic__heading h2 {
+  color: var(--brand-900);
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- 4. Header & navigasi ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+body.scrolled .header {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom-color: var(--brand-100);
+  box-shadow: 0 12px 32px rgba(17, 101, 48, 0.08);
+}
+
+.header .logo img {
+  width: auto !important;
+  height: auto;
+  max-height: 64px;
+  transition: max-height var(--dur) var(--ease);
+}
+
+body.scrolled .header .logo img {
+  max-height: 52px;
+}
+
+.navmenu a,
+.navmenu a:focus {
+  color: var(--ink);
+  font-family: var(--nav-font);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 1200px) {
+  .navmenu > ul > li > a {
+    position: relative;
+    padding: 18px 12px;
+  }
+
+  .navmenu > ul > li > a::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    left: 15px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--brand-700), var(--brand-500));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur) var(--ease);
+  }
+
+  .navmenu > ul > li > a:hover::after,
+  .navmenu > ul > li > a.active::after {
+    transform: scaleX(1);
+  }
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+  padding: 11px 20px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  color: #fff !important;
+  font-family: var(--heading-font);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--sh-sm);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.nav-cta:hover {
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: var(--sh-md);
+}
+
+/* CTA hanya tampil saat layar benar-benar lebar agar navbar tidak meluber */
+@media (max-width: 1479px) {
+  .nav-cta {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navmenu ul {
+    inset: 72px 14px 20px 14px;
+    padding: 14px;
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-lg);
+  }
+
+  .navmenu a {
+    border-radius: var(--r-sm);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active {
+    background: var(--brand-100);
+  }
+}
+
+/* ---------- 5. Hero ---------- */
+.hero,
+.hero.section {
+  padding: 0;
+  position: relative;
+}
+
+.hero .carousel {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--brand-900);
+}
+
+.hero .carousel-item img {
+  transform: scale(1.02);
+}
+
+.hero .carousel-item.active img {
+  animation: hero-kenburns 7s ease-out both;
+}
+
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1.02);
+  }
+
+  to {
+    transform: scale(1.14);
+  }
+}
+
+.hero .carousel-item::before {
+  background: linear-gradient(100deg, rgba(5, 27, 14, 0.93) 0%, rgba(11, 74, 34, 0.74) 40%, rgba(11, 74, 34, 0.3) 78%, rgba(11, 74, 34, 0.16) 100%);
+  z-index: 2;
+}
+
+.hero .carousel-container {
+  inset: 92px 64px 120px 64px;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  color: #eafaf0;
+  font-size: 13px;
+  font-weight: 500;
+  animation: fadeInDown 0.9s both;
+}
+
+.hero h2 {
+  margin-bottom: 20px;
+  max-width: 20ch;
+  color: #fff;
+  font-size: clamp(32px, 5.2vw, 60px);
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: -0.03em;
+  text-shadow: 0 8px 34px rgba(0, 0, 0, 0.38);
+}
+
+.hero p {
+  margin-bottom: 30px;
+  max-width: 62ch;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.7;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.32);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  animation: fadeInUp 1s both 0.35s;
+}
+
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.btn-hero i {
+  transition: transform var(--dur) var(--ease);
+}
+
+.btn-hero:hover i {
+  transform: translateX(3px);
+}
+
+.btn-hero--primary {
+  background: #fff;
+  color: var(--brand-900);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+}
+
+.btn-hero--primary:hover {
+  color: var(--brand-700);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.32);
+}
+
+.btn-hero--ghost {
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  color: #fff;
+}
+
+.btn-hero--ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.hero .carousel-control-prev,
+.hero .carousel-control-next {
+  top: 50%;
+  bottom: auto;
+  width: 56px;
+  height: 56px;
+  opacity: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  transform: translateY(-50%);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.hero .carousel-control-prev {
+  left: 26px;
+}
+
+.hero .carousel-control-next {
+  right: 26px;
+}
+
+.hero .carousel-control-prev:hover,
+.hero .carousel-control-next:hover {
+  background: var(--brand-500);
+  opacity: 1;
+}
+
+.hero .carousel-control-prev-icon,
+.hero .carousel-control-next-icon {
+  font-size: 22px;
+}
+
+.hero .carousel-indicators {
+  bottom: 40px;
+  z-index: 4;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 0 0 0 64px;
+}
+
+.hero .carousel-indicators li {
+  width: 42px;
+  height: 4px;
+  margin: 0;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.35);
+  transition: width var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.hero .carousel-indicators li.active {
+  width: 66px;
+  background: #fff;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  z-index: 5;
+  width: 26px;
+  height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--r-pill);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-scroll span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  border-radius: 4px;
+  background: #fff;
+  transform: translateX(-50%);
+  animation: hero-scroll-dot 1.7s var(--ease) infinite;
+}
+
+@keyframes hero-scroll-dot {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero .carousel-container {
+    inset: 84px 24px 110px 24px;
+  }
+
+  .hero .carousel-indicators {
+    margin-left: 24px;
+  }
+
+  .hero .carousel-control-prev,
+  .hero .carousel-control-next {
+    display: none;
+  }
+}
+
+/* ---------- 6. Jadwal sholat ---------- */
+.prayer-schedule {
+  padding: 44px 0 10px;
+}
+
+.prayer-schedule__panel {
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-md);
+}
+
+.prayer-schedule__intro {
+  padding: 22px 26px;
+  background: linear-gradient(120deg, var(--brand-900), var(--brand-500));
+}
+
+.prayer-schedule__times {
+  gap: 8px;
+  padding: 14px;
+  background: var(--brand-50);
+}
+
+.prayer-time {
+  border-radius: var(--r-sm);
+  color: var(--muted);
+}
+
+.prayer-time > i {
+  color: var(--brand-500);
+}
+
+.prayer-time > strong {
+  color: var(--brand-900);
+  font-weight: 700;
+}
+
+.prayer-time + .prayer-time::before {
+  background: var(--brand-100);
+}
+
+.prayer-time:hover {
+  background: #fff;
+  box-shadow: var(--sh-sm);
+  transform: translateY(-3px);
+}
+
+.prayer-time.is-next {
+  background: linear-gradient(145deg, var(--brand-700), var(--brand-500));
+  box-shadow: var(--sh-md);
+}
+
+.prayer-time.is-next > i,
+.prayer-time.is-next > span,
+.prayer-time.is-next > strong {
+  color: #fff;
+}
+
+/* ---------- 7. Kartu info (profil & yayasan) ---------- */
+.info-card {
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-lg) !important;
+  padding: 34px !important;
+  box-shadow: var(--sh-md) !important;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg) !important;
+}
+
+.info-card h2 {
+  color: var(--brand-900);
+  font-weight: 700;
+}
+
+.info-card p,
+.info-card .text-justify {
+  color: var(--muted);
+}
+
+#salak-image {
+  border-radius: var(--r-lg) !important;
+  box-shadow: var(--sh-lg);
+}
+
+/* ---------- 8. Visi & Misi ---------- */
+.vision-mission {
+  padding: 86px 0 34px;
+}
+
+.vision-card,
+.mission-card {
+  border-radius: var(--r-lg);
+}
+
+.vision-card {
+  background: linear-gradient(145deg, var(--brand-900), var(--brand-500));
+  box-shadow: var(--sh-lg);
+}
+
+.mission-card {
+  border-color: var(--brand-100);
+  box-shadow: var(--sh-md);
+}
+
+.mission-list li::before,
+.mission-card__icon,
+.infographic-card__icon,
+.family-stat__icon {
+  background: var(--brand-100);
+  color: var(--brand-700);
+}
+
+/* ---------- 9. Infografis ---------- */
+.village-infographic {
+  padding: 86px 0;
+  background: radial-gradient(1000px 480px at 100% -10%, var(--brand-100), transparent 62%), linear-gradient(180deg, var(--brand-50), #fff);
+}
+
+.village-infographic__heading > span {
+  border-color: var(--brand-100);
+  border-radius: var(--r-pill);
+  color: var(--brand-700);
+  background: #fff;
+  box-shadow: var(--sh-sm);
+}
+
+.infographic-card,
+.family-stat {
+  border-radius: var(--r-lg);
+}
+
+.infographic-card {
+  border-color: var(--brand-100);
+  box-shadow: var(--sh-sm);
+}
+
+.infographic-card:hover {
+  box-shadow: var(--sh-md);
+}
+
+.infographic-card h3 {
+  color: var(--brand-900);
+}
+
+.family-stat {
+  background: linear-gradient(145deg, var(--brand-900), var(--brand-500));
+  box-shadow: var(--sh-lg);
+}
+
+.family-stat strong {
+  font-size: clamp(54px, 7vw, 74px);
+  font-weight: 700;
+}
+
+/* ---------- 10. Potensi Dusun ---------- */
+.about.section {
+  padding: 0;
+}
+
+.about .content {
+  padding: 92px 0;
+  background: radial-gradient(900px 420px at 5% 0%, rgba(46, 163, 89, 0.38), transparent 60%), linear-gradient(160deg, var(--brand-900), #073019);
+}
+
+.about .content-subtitle {
+  color: var(--brand-300);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.about .content-title {
+  color: #fff;
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.about .opacity-50 {
+  opacity: 0.94 !important;
+}
+
+.about p.opacity-50 {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.about .img-overlap {
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-lg);
+  transition: transform var(--dur) var(--ease);
+}
+
+.about .img-overlap:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.about .content .carousel,
+.about .content .carousel-inner,
+.about .content .carousel-item {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.about .content .carousel-item img {
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-lg);
+}
+
+.about .content .carousel-indicators {
+  bottom: 14px;
+}
+
+/* ---------- 11. Masjid (about-3) ---------- */
+.about-3 {
+  padding: 86px 0;
+  background: var(--brand-50);
+}
+
+.about-3 .content-title {
+  color: var(--brand-900);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.about-3 .carousel-inner {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
+}
+
+.about-3 .btn-cta {
+  display: inline-block;
+  padding: 16px 34px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: var(--sh-sm);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.about-3 .btn-cta:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--sh-md);
+}
+
+.about-3 .list-check li {
+  color: var(--muted);
+}
+
+.about-3 .list-check li:before {
+  color: var(--brand-500);
+}
+
+/* Kotak rekening + tombol salin */
+.account-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px dashed var(--brand-200);
+  border-radius: var(--r);
+  background: var(--brand-50);
+}
+
+.account-box .account-bank {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--brand-700);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.account-box strong {
+  display: block;
+  color: var(--brand-900);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+.account-box small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 10px 16px;
+  border: 1px solid var(--brand-200);
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--brand-700);
+  font-family: var(--heading-font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.btn-copy:hover {
+  background: var(--brand-700);
+  border-color: var(--brand-700);
+  color: #fff;
+}
+
+.btn-copy.is-copied {
+  background: var(--brand-500);
+  border-color: var(--brand-500);
+  color: #fff;
+}
+
+/* ---------- 12. Perangkat Dusun (services-2) ---------- */
+.services-2 {
+  overflow: visible;
+  margin-bottom: 0;
+  padding: 92px 0;
+  background: radial-gradient(900px 500px at 100% 0%, rgba(46, 163, 89, 0.28), transparent 60%), linear-gradient(160deg, #072b16, #041a0d);
+}
+
+.services-2 .section-title::after {
+  margin-left: 0;
+}
+
+.services-2 .services-carousel-wrap {
+  margin-bottom: 0;
+}
+
+.services-2 .swiper {
+  padding-bottom: 56px;
+}
+
+.services-2 .service-item {
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-md);
+}
+
+.services-2 .service-item img {
+  border-radius: var(--r-lg);
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.services-2 .service-item::before {
+  z-index: 1;
+  background: linear-gradient(to top, rgba(4, 26, 13, 0.94) 0%, rgba(4, 26, 13, 0.4) 48%, transparent 82%);
+  opacity: 1;
+  visibility: visible;
+}
+
+.services-2 .service-item .service-item-contents {
+  z-index: 2;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.services-2 .service-item .service-item-contents .service-item-category {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+  background: var(--brand-500);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.services-2 .service-item .service-item-contents .service-item-title {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.services-2 .service-item:hover img {
+  transform: scale(1.06);
+}
+
+.services-2 .navigation-prev,
+.services-2 .navigation-next {
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  color: #fff;
+}
+
+.services-2 .navigation-prev:hover,
+.services-2 .navigation-next:hover {
+  background: var(--brand-500);
+  color: #fff;
+}
+
+.services-2 .navigation-prev {
+  left: -6px;
+}
+
+.services-2 .navigation-next {
+  right: -6px;
+}
+
+.services-2 .swiper-pagination {
+  bottom: 8px;
+}
+
+.services-2 .swiper-pagination .swiper-pagination-bullet {
+  width: 26px;
+  height: 4px;
+  border-radius: var(--r-pill);
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.services-2 .swiper-pagination .swiper-pagination-bullet-active {
+  width: 40px;
+  background-color: var(--brand-500) !important;
+}
+
+/* ---------- 13. Kegiatan (recent posts) ---------- */
+.recent-posts {
+  padding: 86px 0;
+}
+
+.recent-posts .post-item {
+  overflow: hidden;
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.recent-posts .post-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sh-lg);
+}
+
+.recent-posts .post-item .post-img {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.recent-posts .post-item .post-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recent-posts .post-item .post-content {
+  padding: 26px;
+}
+
+.recent-posts .post-item .post-title {
+  margin-bottom: 12px;
+  color: var(--brand-900);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.recent-posts .post-item p {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ---------- 14. Peta / denah ---------- */
+#petadusun {
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+
+#petadusun img {
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-lg);
+  background: #fff;
+  box-shadow: var(--sh-md);
+}
+
+/* ---------- 15. Kontak ---------- */
+#kontak {
+  padding-top: 40px;
+  padding-bottom: 86px;
+}
+
+#kontak > h1 {
+  color: var(--brand-900) !important;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+#kontak .shadow {
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-xl) !important;
+  padding: 36px !important;
+  box-shadow: var(--sh-lg) !important;
+}
+
+#kontak h2 {
+  color: var(--brand-900);
+  font-weight: 700;
+}
+
+#kontak hr {
+  opacity: 0.08;
+}
+
+#kontak a {
+  color: var(--brand-700);
+  font-weight: 500;
+}
+
+#kontak .ratio {
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+}
+
+/* ---------- 16. Footer ---------- */
+.footer.dark-background {
+  background: linear-gradient(160deg, #072b16, #041a0d);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-900), var(--brand-500), var(--brand-900));
+}
+
+.footer .footer-top {
+  padding-top: 64px;
+  background: transparent;
+}
+
+.footer .footer-about .logo span {
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.footer .footer-contact p {
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--default-font);
+}
+
+.footer .social-links a {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  place-items: center;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.footer .social-links a:hover {
+  background: var(--brand-500);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer .copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .copyright,
+.footer .credits {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer .credits a {
+  color: var(--brand-300);
+}
+
+/* ---------- 17. Scroll top & preloader ---------- */
+.scroll-top {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  color: #fff;
+  box-shadow: var(--sh-md);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.scroll-top:hover {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: var(--sh-lg);
+}
+
+#preloader {
+  background: #fff;
+}
+
+#preloader:before {
+  border-color: var(--brand-500) transparent var(--brand-500) transparent;
+}
+
+/* ---------- 18. Responsif ---------- */
+@media (max-width: 991px) {
+  section,
+  .section {
+    padding: 64px 0;
+  }
+
+  .about .content,
+  .services-2,
+  .village-infographic,
+  .recent-posts,
+  .about-3 {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .hero .carousel {
+    min-height: 88vh;
+    min-height: 88svh;
+  }
+}
+
+@media (max-width: 575px) {
+  .info-card {
+    padding: 24px !important;
+  }
+
+  .account-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #kontak .shadow {
+    padding: 22px !important;
+  }
+}
+
+/* ---------- 19. Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

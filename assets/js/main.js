@@ -16,7 +16,6 @@
     const selectBody = document.querySelector("body");
     const selectHeader = document.querySelector("#header");
     if (!selectBody || !selectHeader) return;
-    if (!selectHeader.classList.contains("scroll-up-sticky") && !selectHeader.classList.contains("sticky-top") && !selectHeader.classList.contains("fixed-top")) return;
     window.scrollY > 100 ? selectBody.classList.add("scrolled") : selectBody.classList.remove("scrolled");
   }
 
@@ -164,5 +163,121 @@
   }
 
   window.addEventListener("load", initSwiper);
+
+  /**
+   * Animated number counters (element dengan atribut [data-count])
+   */
+  function initCounters() {
+    const counters = document.querySelectorAll("[data-count]");
+    if (!counters.length || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.getAttribute("data-count"), 10) || 0;
+          const duration = 1400;
+          const start = performance.now();
+
+          function step(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(target * eased).toLocaleString("id-ID");
+            if (progress < 1) requestAnimationFrame(step);
+          }
+
+          requestAnimationFrame(step);
+          obs.unobserve(el);
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
+
+  /**
+   * Tombol salin ke clipboard (element dengan atribut [data-copy])
+   */
+  function initCopyButtons() {
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const value = button.getAttribute("data-copy") || "";
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch (error) {
+          const helper = document.createElement("textarea");
+          helper.value = value;
+          helper.style.position = "fixed";
+          helper.style.opacity = "0";
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand("copy");
+          helper.remove();
+        }
+
+        const label = button.querySelector("span");
+        const original = label ? label.textContent : "";
+        button.classList.add("is-copied");
+        if (label) label.textContent = "Tersalin";
+        window.setTimeout(() => {
+          button.classList.remove("is-copied");
+          if (label) label.textContent = original;
+        }, 1600);
+      });
+    });
+  }
+
+  /**
+   * Sorot jadwal sholat berikutnya berdasarkan jam lokal
+   */
+  function markNextPrayer(timings) {
+    if (!timings) return;
+
+    const order = [
+      [".subuh-time", timings.Fajr],
+      [".dzuhur-time", timings.Dhuhr],
+      [".ashar-time", timings.Asr],
+      [".maghrib-time", timings.Maghrib],
+      [".isya-time", timings.Isha],
+    ];
+
+    const now = new Date();
+    const nowMinutes = now.getHours() * 60 + now.getMinutes();
+    let nextSelector = order[0][0];
+
+    for (let i = 0; i < order.length; i += 1) {
+      const value = order[i][1];
+      if (!value) continue;
+      const parts = String(value).split(":");
+      const minutes = parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+      if (minutes > nowMinutes) {
+        nextSelector = order[i][0];
+        break;
+      }
+    }
+
+    document.querySelectorAll(".prayer-time").forEach((el) => el.classList.remove("is-next"));
+    const target = document.querySelector(nextSelector);
+    if (target && target.closest(".prayer-time")) {
+      target.closest(".prayer-time").classList.add("is-next");
+    }
+  }
+
+  window.KapingrejoUI = {
+    markNextPrayer: markNextPrayer,
+  };
+
+  function initEnhancements() {
+    initCounters();
+    initCopyButtons();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initEnhancements);
+  } else {
+    initEnhancements();
+  }
 
 })();

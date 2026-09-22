@@ -4,7 +4,7 @@ Website profil Dusun Kapingrejo, Wonokerto, Turi, Sleman. Situs ini menampilkan 
 
 ## Fitur
 
-- Jadwal sholat Kabupaten Sleman yang mengambil data dari API Aladhan.
+- Jadwal sholat Kabupaten Sleman yang mengambil data dari API Aladhan (metode perhitungan Kementerian Agama RI).
 - Visi dan misi dengan tampilan responsif.
 - Infografis kependudukan menggunakan Chart.js.
 - Informasi potensi dusun, fasilitas keagamaan, perangkat dusun, dan kegiatan warga.

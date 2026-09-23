@@ -3471,9 +3471,180 @@ body.scrolled .header .logo img {
   color: var(--muted);
 }
 
-#salak-image {
-  border-radius: var(--r-lg) !important;
+.profil-dusun-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(244, 250, 246, 0.6) 0%, #ffffff 100%);
+}
+
+.profil-identity-card {
+  background: #ffffff;
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-lg);
+  padding: 34px 26px;
+  box-shadow: var(--sh-md);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.profil-identity-card:hover {
+  transform: translateY(-4px);
   box-shadow: var(--sh-lg);
+}
+
+.profil-logo-wrapper {
+  background: var(--brand-50);
+  border: 1px solid var(--brand-200);
+  border-radius: var(--r);
+  padding: 20px 24px;
+  margin: 0 auto 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 220px;
+  width: 100%;
+}
+
+.profil-identity-logo {
+  max-height: 85px;
+  width: auto;
+  object-fit: contain;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profil-identity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  margin-bottom: 10px;
+}
+
+.profil-identity-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brand-900);
+  margin-bottom: 4px;
+}
+
+.profil-identity-subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.profil-identity-divider {
+  margin: 22px 0;
+  border: 0;
+  border-top: 1px dashed var(--brand-200);
+}
+
+.profil-highlights {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profil-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.profil-highlight-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.profil-highlight-item strong {
+  display: block;
+  font-size: 14px;
+  color: var(--brand-900);
+  line-height: 1.3;
+}
+
+.profil-highlight-item small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.profil-story-card {
+  background: #ffffff;
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-lg);
+  padding: 38px 34px;
+  box-shadow: var(--sh-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.profil-story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg);
+}
+
+.profil-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: var(--r-pill);
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.profil-story-title {
+  color: var(--brand-900);
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.profil-lead-text {
+  font-size: 1.05em;
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.profil-story-body p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 767px) {
+  .profil-story-card,
+  .profil-identity-card {
+    padding: 24px 20px;
+  }
 }
 
 /* ---------- 8. Visi & Misi ---------- */
@@ -3547,61 +3718,288 @@ body.scrolled .header .logo img {
 }
 
 /* ---------- 10. Potensi Dusun ---------- */
-.about.section {
-  padding: 0;
-}
-
-.about .content {
-  padding: 92px 0;
-  background: radial-gradient(900px 420px at 5% 0%, rgba(46, 163, 89, 0.38), transparent 60%), linear-gradient(160deg, var(--brand-900), #073019);
-}
-
-.about .content-subtitle {
-  color: var(--brand-300);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-}
-
-.about .content-title {
-  color: #fff;
-  font-size: clamp(28px, 3.6vw, 42px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.about .opacity-50 {
-  opacity: 0.94 !important;
-}
-
-.about p.opacity-50 {
-  color: rgba(255, 255, 255, 0.84);
-}
-
-.about .img-overlap {
-  border-radius: var(--r-lg);
-  box-shadow: var(--sh-lg);
-  transition: transform var(--dur) var(--ease);
-}
-
-.about .img-overlap:hover {
-  transform: translateY(-6px) scale(1.01);
-}
-
-.about .content .carousel,
-.about .content .carousel-inner,
-.about .content .carousel-item {
-  border-radius: var(--r-lg);
+.potensi-section {
+  padding: 96px 0;
+  background: radial-gradient(1100px 500px at 0% 0%, rgba(46, 163, 89, 0.28), transparent 60%),
+              radial-gradient(900px 500px at 100% 100%, rgba(17, 101, 48, 0.35), transparent 60%),
+              linear-gradient(160deg, #052110 0%, #03160a 100%);
+  position: relative;
   overflow: hidden;
 }
 
-.about .content .carousel-item img {
-  border-radius: var(--r-lg);
-  box-shadow: var(--sh-lg);
+.potensi-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(46, 163, 89, 0.18);
+  color: var(--brand-300);
+  border: 1px solid rgba(46, 163, 89, 0.35);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  padding: 6px 18px;
+  border-radius: var(--r-pill);
+  margin-bottom: 14px;
 }
 
-.about .content .carousel-indicators {
-  bottom: 14px;
+.potensi-section .section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.potensi-section .section-title h2 {
+  color: #ffffff !important;
+  font-size: clamp(28px, 3.6vw, 44px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+.potensi-section .section-title p {
+  color: rgba(255, 255, 255, 0.82) !important;
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.6;
+}
+
+.potensi-section .section-title::after {
+  margin: 18px auto 0 !important;
+  background: linear-gradient(90deg, #2ea359, #9fd6b4) !important;
+}
+
+.potensi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 48px;
+}
+
+.potensi-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.potensi-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(46, 163, 89, 0.45);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.42);
+}
+
+.potensi-img-wrap {
+  position: relative;
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  background-color: #03160a;
+}
+
+.potensi-img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+
+.potensi-card:hover .potensi-img {
+  transform: scale(1.03);
+}
+
+.potensi-img-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(5, 33, 16, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--r-pill);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+.potensi-content {
+  padding: 8px 12px;
+}
+
+.potensi-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand-300);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.potensi-name {
+  color: #ffffff;
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.potensi-desc {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  text-align: left !important;
+}
+
+.potensi-desc strong {
+  color: #ffffff;
+}
+
+.potensi-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.potensi-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+}
+
+.potensi-tag i {
+  color: var(--brand-300);
+}
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #ffffff !important;
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  text-decoration: none;
+}
+
+.btn-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  color: #ffffff !important;
+}
+
+.btn-wa i {
+  font-size: 18px;
+}
+
+.potensi-section .carousel,
+.potensi-section .carousel-inner,
+.potensi-section .carousel-item {
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.potensi-section .carousel-indicators {
+  bottom: 12px;
+  margin-bottom: 0;
+}
+
+.potensi-section .carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 0 4px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.potensi-section .carousel-indicators .active {
+  width: 22px;
+  border-radius: var(--r-pill);
+  opacity: 1;
+  background-color: var(--brand-400);
+}
+
+.potensi-section .carousel-control-prev,
+.potensi-section .carousel-control-next {
+  width: 44px;
+  height: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(5, 33, 16, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  margin: 0 10px;
+  opacity: 0.75;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.potensi-section .carousel-control-prev:hover,
+.potensi-section .carousel-control-next:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.potensi-section .carousel-control-prev-icon,
+.potensi-section .carousel-control-next-icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 991px) {
+  .potensi-section {
+    padding: 64px 0;
+  }
+  .potensi-card {
+    padding: 24px;
+  }
+  .potensi-img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 575px) {
+  .potensi-section {
+    padding: 48px 0;
+  }
+  .potensi-card {
+    padding: 18px;
+  }
+  .potensi-img {
+    height: 220px;
+  }
+  .btn-wa {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ---------- 11. Masjid (about-3) ---------- */
@@ -3723,6 +4121,11 @@ body.scrolled .header .logo img {
 
 .services-2 .section-title::after {
   margin-left: 0;
+}
+
+.services-2 .section-title p {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .services-2 .services-carousel-wrap {

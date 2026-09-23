@@ -3099,8 +3099,8 @@ body.scrolled .header .logo img {
   box-shadow: var(--sh-md);
 }
 
-/* CTA hanya tampil saat layar benar-benar lebar agar navbar tidak meluber */
-@media (max-width: 1479px) {
+/* CTA tampil di desktop (>= 1200px) karena menu sekarang lebih ringkas */
+@media (max-width: 1199px) {
   .nav-cta {
     display: none;
   }

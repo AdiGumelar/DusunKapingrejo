@@ -526,11 +526,34 @@ body {
 
 .chart-wrap {
   position: relative;
-  height: 245px;
+  height: 275px;
+}
+
+.chart-wrap--doughnut {
+  height: 250px;
 }
 
 .chart-wrap canvas {
   max-width: 100%;
+}
+
+.badge-insight {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--brand-700);
+  background: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+
+.badge-insight i {
+  font-size: 11px;
+  color: var(--brand-500);
 }
 
 .family-stat {
@@ -620,7 +643,11 @@ body {
   }
 
   .chart-wrap {
-    height: 220px;
+    height: 260px;
+  }
+
+  .chart-wrap--doughnut {
+    height: 235px;
   }
 }
 

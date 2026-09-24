@@ -331,9 +331,12 @@
               <article class="infographic-card h-100">
                 <div class="infographic-card__header">
                   <div class="infographic-card__icon"><i class="bi bi-mortarboard-fill"></i></div>
-                  <div>
-                    <h3>Pendidikan</h3>
-                    <p>Komposisi tingkat pendidikan warga</p>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                      <h3>Pendidikan</h3>
+                      <span class="badge-insight"><i class="bi bi-award-fill"></i> Dominan SLTA (73)</span>
+                    </div>
+                    <p>Komposisi tingkat pendidikan warga Kapingrejo</p>
                   </div>
                 </div>
                 <div class="chart-wrap"><canvas id="pendidikanChart"></canvas></div>
@@ -345,12 +348,15 @@
               <article class="infographic-card h-100">
                 <div class="infographic-card__header">
                   <div class="infographic-card__icon"><i class="bi bi-people-fill"></i></div>
-                  <div>
-                    <h3>Jenis Kelamin</h3>
-                    <p>Distribusi warga berdasarkan gender</p>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                      <h3>Jenis Kelamin</h3>
+                      <span class="badge-insight"><i class="bi bi-pie-chart-fill"></i> 55% Pria • 45% Wanita</span>
+                    </div>
+                    <p>Perbandingan proporsi warga berdasarkan gender</p>
                   </div>
                 </div>
-                <div class="chart-wrap"><canvas id="genderChart"></canvas></div>
+                <div class="chart-wrap chart-wrap--doughnut"><canvas id="genderChart"></canvas></div>
               </article>
             </div>
 
@@ -359,9 +365,12 @@
               <article class="infographic-card h-100">
                 <div class="infographic-card__header">
                   <div class="infographic-card__icon"><i class="bi bi-briefcase-fill"></i></div>
-                  <div>
-                    <h3>Pekerjaan</h3>
-                    <p>Ragam mata pencaharian warga</p>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                      <h3>Pekerjaan</h3>
+                      <span class="badge-insight"><i class="bi bi-graph-up-arrow"></i> Ragam Profesi Warga</span>
+                    </div>
+                    <p>Peringkat mata pencaharian utama warga dusun</p>
                   </div>
                 </div>
                 <div class="chart-wrap"><canvas id="pekerjaanChart"></canvas></div>
@@ -373,9 +382,12 @@
               <article class="infographic-card h-100">
                 <div class="infographic-card__header">
                   <div class="infographic-card__icon"><i class="bi bi-person-hearts"></i></div>
-                  <div>
-                    <h3>Usia</h3>
-                    <p>Sebaran kelompok usia warga</p>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                      <h3>Usia</h3>
+                      <span class="badge-insight"><i class="bi bi-person-check-fill"></i> Puncak 41–50 Thn</span>
+                    </div>
+                    <p>Distribusi piramida kelompok umur warga</p>
                   </div>
                 </div>
                 <div class="chart-wrap"><canvas id="usiaChart"></canvas></div>
@@ -387,12 +399,15 @@
               <article class="infographic-card h-100">
                 <div class="infographic-card__header">
                   <div class="infographic-card__icon"><i class="bi bi-house-heart-fill"></i></div>
-                  <div>
-                    <h3>Agama</h3>
-                    <p>Komposisi keyakinan warga</p>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                      <h3>Agama</h3>
+                      <span class="badge-insight"><i class="bi bi-check-circle-fill"></i> 92.1% Islam</span>
+                    </div>
+                    <p>Komposisi keyakinan masyarakat Kapingrejo</p>
                   </div>
                 </div>
-                <div class="chart-wrap"><canvas id="agamaChart"></canvas></div>
+                <div class="chart-wrap chart-wrap--doughnut"><canvas id="agamaChart"></canvas></div>
               </article>
             </div>
 
@@ -411,7 +426,6 @@
 
       <!-- /Infografis Section -->
 
-      <!-- Potensi Dusun Section -->
       <!-- Potensi Dusun Section -->
       <section id="potensidusun" class="about potensi-section section">
         <div class="container">

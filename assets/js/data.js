@@ -162,130 +162,455 @@ agamaData.forEach((agama) => {
   }
 });
 
-// Buat chart untuk pendidikan
-const ctxPendidikan = document.getElementById("pendidikanChart").getContext("2d");
-const pendidikanChart = new Chart(ctxPendidikan, {
-  type: "bar",
-  data: {
-    labels: kategoriPendidikan, // Label untuk kategori pendidikan
-    datasets: [
-      {
-        label: "Jumlah Orang",
-        data: jumlahPerKategoriPendidikan, // Data jumlah orang per kategori
-        backgroundColor: "rgba(46, 163, 89, 0.25)",
-        borderColor: "rgba(17, 101, 48, 1)",
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
-});
+// ==========================================
+// Plugin Kustom Chart.js
+// ==========================================
 
-// Buat chart untuk jenis kelamin
-const ctxGender = document.getElementById("genderChart").getContext("2d");
-const genderChart = new Chart(ctxGender, {
-  type: "bar",
-  data: {
-    labels: kategoriGender, // Label untuk kategori gender
-    datasets: [
-      {
-        label: "Jumlah Orang",
-        data: jumlahPerKategoriGender, // Data jumlah orang berdasarkan gender
-        backgroundColor: ["rgba(46, 163, 89, 0.25)", "rgba(144, 197, 114, 0.35)"],
-        borderColor: ["rgba(17, 101, 48, 1)", "rgba(86, 142, 60, 1)"],
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
-});
+// 1. Plugin untuk menampilkan angka/nilai langsung pada batang grafik
+const chartValuePlugin = {
+  id: "chartValuePlugin",
+  afterDatasetsDraw(chart) {
+    const { ctx } = chart;
+    const isMobile = chart.width < 420;
 
-// Grafik Pekerjaan
-const pekerjaanCtx = document.getElementById("pekerjaanChart").getContext("2d");
-new Chart(pekerjaanCtx, {
-  type: "bar",
-  data: {
-    labels: kategoriPekerjaan, // Menggunakan kategori pekerjaan sebagai label
-    datasets: [
-      {
-        label: "Jumlah",
-        data: kategoriCount, // Menggunakan kategoriCount sebagai data
-        backgroundColor: "rgba(46, 163, 89, 0.55)",
-        borderColor: "rgba(17, 101, 48, 1)",
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
-});
+    chart.data.datasets.forEach((dataset, datasetIndex) => {
+      const meta = chart.getDatasetMeta(datasetIndex);
+      if (!meta || meta.hidden) return;
 
-// Grafik Usia
-const usiaCtx = document.getElementById("usiaChart").getContext("2d");
-new Chart(usiaCtx, {
-  type: "bar",
-  data: {
-    labels: rentangUsia, // Menggunakan rentang usia sebagai label
-    datasets: [
-      {
-        label: "Jumlah",
-        data: rentangCount, // Menggunakan rentangCount sebagai data
-        backgroundColor: "rgba(93, 170, 111, 0.58)",
-        borderColor: "rgba(35, 119, 58, 1)",
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
-});
+      meta.data.forEach((element, index) => {
+        const val = dataset.data[index];
+        if (val === undefined || val === null || val === 0) return;
 
-// Grafik Agama
-const agamaCtx = document.getElementById("agamaChart").getContext("2d");
-new Chart(agamaCtx, {
-  type: "bar",
-  data: {
-    labels: kategoriAgama, // Menggunakan kategori agama sebagai label
-    datasets: [
-      {
-        label: "Jumlah",
-        data: agamaCount, // Menggunakan agamaCount sebagai data
-        backgroundColor: "rgba(46, 163, 89, 0.55)",
-        borderColor: "rgba(17, 101, 48, 1)",
-        borderWidth: 1,
-      },
-    ],
+        ctx.save();
+        ctx.font = "600 11px 'Poppins', system-ui, sans-serif";
+        ctx.fillStyle = "#1b4329";
+
+        if (chart.config.options.indexAxis === "y") {
+          // Horizontal bar: render teks di kanan batang
+          ctx.textAlign = "left";
+          ctx.textBaseline = "middle";
+          const suffix = isMobile ? " org" : " orang";
+          ctx.fillText(val + suffix, element.x + 8, element.y);
+        } else if (chart.config.type === "bar") {
+          // Vertikal bar: render teks di atas batang
+          ctx.textAlign = "center";
+          ctx.textBaseline = "bottom";
+          ctx.fillText(val, element.x, element.y - 4);
+        }
+        ctx.restore();
+      });
+    });
   },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
+};
+
+// 2. Helper plugin untuk menampilkan metrik teks di tengah diagram donat
+function createCenterTextPlugin(mainText, subText) {
+  return {
+    id: "centerText_" + mainText.replace(/\s+/g, ""),
+    beforeDraw(chart) {
+      const { width, height, ctx } = chart;
+      ctx.save();
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      const centerY = chart.chartArea
+        ? (chart.chartArea.top + chart.chartArea.bottom) / 2
+        : height / 2;
+      ctx.font = "700 24px 'Poppins', system-ui, sans-serif";
+      ctx.fillStyle = "#116530";
+      ctx.fillText(mainText, width / 2, centerY - 8);
+      ctx.font = "500 11px 'Poppins', system-ui, sans-serif";
+      ctx.fillStyle = "#6d8174";
+      ctx.fillText(subText, width / 2, centerY + 14);
+      ctx.restore();
+    },
+  };
+}
+
+// ==========================================
+// 1. Grafik Pendidikan (Horizontal Bar Chart)
+// ==========================================
+const pCanvas = document.getElementById("pendidikanChart");
+if (pCanvas) {
+  const pLabels = [
+    "Belum Sekolah",
+    "Belum Tamat SD",
+    "SD / Sederajat",
+    "SLTP / SMP",
+    "SLTA / SMA",
+    "Diploma I / II",
+    "Akademi / D3",
+    "Diploma IV / S1",
+    "S2 / S3",
+  ];
+
+  const pFullLabels = [
+    "Tidak / Belum Pernah Sekolah",
+    "Belum Tamat SD / Sederajat",
+    "Tamat SD / Sederajat",
+    "SLTP / SMP / Sederajat",
+    "SLTA / SMA / Sederajat",
+    "Diploma I / II",
+    "Akademi / Diploma III",
+    "Diploma IV / Strata I (S1)",
+    "Pascasarjana (S2 / S3)",
+  ];
+
+  const pData = [
+    jumlahPerKategoriPendidikan[0],
+    jumlahPerKategoriPendidikan[1],
+    jumlahPerKategoriPendidikan[2],
+    jumlahPerKategoriPendidikan[3],
+    jumlahPerKategoriPendidikan[4],
+    jumlahPerKategoriPendidikan[5],
+    jumlahPerKategoriPendidikan[6],
+    jumlahPerKategoriPendidikan[7],
+    (jumlahPerKategoriPendidikan[8] || 0) + (jumlahPerKategoriPendidikan[9] || 0),
+  ];
+
+  new Chart(pCanvas, {
+    type: "bar",
+    data: {
+      labels: pLabels,
+      datasets: [
+        {
+          label: "Jumlah Warga",
+          data: pData,
+          backgroundColor: pData.map((val) =>
+            val === 73 ? "rgba(17, 101, 48, 0.9)" : "rgba(46, 163, 89, 0.45)"
+          ),
+          borderColor: "rgba(17, 101, 48, 0.95)",
+          borderWidth: 1,
+          borderRadius: 6,
+          barThickness: 15,
+        },
+      ],
+    },
+    options: {
+      indexAxis: "y",
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { left: 4, right: 55, top: 4, bottom: 4 } },
+      scales: {
+        x: {
+          beginAtZero: true,
+          grid: { color: "rgba(0, 0, 0, 0.05)" },
+          ticks: { font: { size: 10 } },
+        },
+        y: {
+          grid: { display: false },
+          afterFit(axis) {
+            axis.width = Math.max(axis.width, axis.chart.width < 420 ? 100 : 115);
+          },
+          ticks: {
+            padding: 6,
+            font: { size: 10.5, weight: "500" },
+            color: "#2d3e33",
+          },
+        },
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: (items) => pFullLabels[items[0].dataIndex] || items[0].label,
+            label: (ctx) =>
+              " " + ctx.raw + " orang (" + ((ctx.raw / 200) * 100).toFixed(1) + "%)",
+          },
+        },
       },
     },
-  },
-});
+    plugins: [chartValuePlugin],
+  });
+}
+
+// ==========================================
+// 2. Grafik Jenis Kelamin (Doughnut Chart)
+// ==========================================
+const genderCanvas = document.getElementById("genderChart");
+if (genderCanvas) {
+  new Chart(genderCanvas, {
+    type: "doughnut",
+    data: {
+      labels: ["Laki-laki", "Perempuan"],
+      datasets: [
+        {
+          data: jumlahPerKategoriGender, // [110, 90]
+          backgroundColor: ["#116530", "#52b77a"],
+          borderColor: "#ffffff",
+          borderWidth: 3,
+          hoverOffset: 6,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: "70%",
+      plugins: {
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            boxWidth: 12,
+            boxHeight: 12,
+            borderRadius: 3,
+            useBorderRadius: true,
+            padding: 16,
+            font: { size: 12, weight: "600" },
+            color: "#2d3e33",
+            generateLabels: (chart) => {
+              const data = chart.data;
+              return data.labels.map((label, i) => {
+                const count = data.datasets[0].data[i];
+                const pct = ((count / 200) * 100).toFixed(0) + "%";
+                return {
+                  text: label + ": " + count + " orang (" + pct + ")",
+                  fillStyle: data.datasets[0].backgroundColor[i],
+                  strokeStyle: "#ffffff",
+                  lineWidth: 0,
+                  hidden: false,
+                  index: i,
+                };
+              });
+            },
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) =>
+              " " +
+              ctx.label +
+              ": " +
+              ctx.raw +
+              " orang (" +
+              ((ctx.raw / 200) * 100).toFixed(1) +
+              "%)",
+          },
+        },
+      },
+    },
+    plugins: [createCenterTextPlugin("200", "Total Jiwa")],
+  });
+}
+
+// ==========================================
+// 3. Grafik Pekerjaan (Ranked Horizontal Bar)
+// ==========================================
+const pekerjaanCanvas = document.getElementById("pekerjaanChart");
+if (pekerjaanCanvas) {
+  const jobList = kategoriPekerjaan
+    .map((name, i) => ({
+      name,
+      count: kategoriCount[i],
+    }))
+    .sort((a, b) => b.count - a.count);
+
+  const topJobs = jobList.slice(0, 6);
+  const otherJobsCount = jobList.slice(6).reduce((sum, item) => sum + item.count, 0);
+
+  const isMobile = window.innerWidth < 576;
+  const jobLabels = [
+    "Belum Bekerja",
+    "Rumah Tangga",
+    "Petani / Kebun",
+    "Pelajar / Mhs",
+    "Karyawan",
+    "Wiraswasta",
+    "Sektor Lain",
+  ];
+
+  const jobFullLabels = [
+    "Belum / Tidak Bekerja",
+    "Mengurus Rumah Tangga",
+    "Petani / Pekebun",
+    "Pelajar / Mahasiswa",
+    "Karyawan Swasta",
+    "Wiraswasta",
+    "Profesi Lainnya (PNS, TNI, POLRI, BUMN, Pensiunan, dll.)",
+  ];
+
+  const jobCounts = topJobs.map((j) => j.count);
+  jobCounts.push(otherJobsCount);
+
+  new Chart(pekerjaanCanvas, {
+    type: "bar",
+    data: {
+      labels: jobLabels,
+      datasets: [
+        {
+          label: "Jumlah Warga",
+          data: jobCounts,
+          backgroundColor: jobCounts.map((c, i) =>
+            i === 0 ? "rgba(17, 101, 48, 0.9)" : "rgba(46, 163, 89, 0.45)"
+          ),
+          borderColor: "rgba(17, 101, 48, 0.95)",
+          borderWidth: 1,
+          borderRadius: 6,
+          barThickness: isMobile ? 13 : 15,
+        },
+      ],
+    },
+    options: {
+      indexAxis: "y",
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { left: 4, right: 55, top: 4, bottom: 4 } },
+      scales: {
+        x: {
+          beginAtZero: true,
+          grid: { color: "rgba(0, 0, 0, 0.05)" },
+          ticks: { font: { size: 10 } },
+        },
+        y: {
+          grid: { display: false },
+          afterFit(axis) {
+            axis.width = Math.max(axis.width, axis.chart.width < 420 ? 98 : 115);
+          },
+          ticks: {
+            padding: 6,
+            font: { size: isMobile ? 10 : 11, weight: "500" },
+            color: "#2d3e33",
+          },
+        },
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: (items) => jobFullLabels[items[0].dataIndex] || items[0].label,
+            label: (ctx) =>
+              " " + ctx.raw + " orang (" + ((ctx.raw / 202) * 100).toFixed(1) + "%)",
+          },
+        },
+      },
+    },
+    plugins: [chartValuePlugin],
+  });
+}
+
+// ==========================================
+// 4. Grafik Usia (Vertical Bar Chart Piramida)
+// ==========================================
+const usiaCanvas = document.getElementById("usiaChart");
+if (usiaCanvas) {
+  const isMobile = window.innerWidth < 576;
+  new Chart(usiaCanvas, {
+    type: "bar",
+    data: {
+      labels: rentangUsia.map((u) => u + (isMobile ? "" : " thn")),
+      datasets: [
+        {
+          label: "Jumlah Warga",
+          data: rentangCount,
+          backgroundColor: rentangCount.map((count) =>
+            count === 39 ? "rgba(17, 101, 48, 0.9)" : "rgba(46, 163, 89, 0.45)"
+          ),
+          borderColor: "rgba(17, 101, 48, 0.95)",
+          borderWidth: 1,
+          borderRadius: 6,
+          maxBarThickness: isMobile ? 24 : 32,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 22 } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: "rgba(0, 0, 0, 0.05)" },
+          ticks: { font: { size: 10 } },
+        },
+        x: {
+          grid: { display: false },
+          ticks: {
+            font: { size: isMobile ? 9 : 11, weight: "500" },
+            color: "#2d3e33",
+            maxRotation: 0,
+            minRotation: 0,
+          },
+        },
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => " " + ctx.label + " tahun: " + ctx.raw + " orang",
+          },
+        },
+      },
+    },
+    plugins: [chartValuePlugin],
+  });
+}
+
+// ==========================================
+// 5. Grafik Agama (Doughnut Chart Proporsional)
+// ==========================================
+const agamaCanvas = document.getElementById("agamaChart");
+if (agamaCanvas) {
+  const agamaActiveLabels = ["Islam", "Katholik", "Kristen"];
+  const agamaActiveData = [agamaCount[0], agamaCount[2], agamaCount[1]]; // [186, 14, 2]
+  const totalAgama = agamaActiveData.reduce((a, b) => a + b, 0); // 202
+
+  new Chart(agamaCanvas, {
+    type: "doughnut",
+    data: {
+      labels: agamaActiveLabels,
+      datasets: [
+        {
+          data: agamaActiveData,
+          backgroundColor: ["#116530", "#3db571", "#e5a93c"],
+          borderColor: "#ffffff",
+          borderWidth: 3,
+          hoverOffset: 6,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: "70%",
+      plugins: {
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            boxWidth: 12,
+            boxHeight: 12,
+            borderRadius: 3,
+            useBorderRadius: true,
+            padding: 14,
+            font: { size: 12, weight: "600" },
+            color: "#2d3e33",
+            generateLabels: (chart) => {
+              const data = chart.data;
+              return data.labels.map((label, i) => {
+                const count = data.datasets[0].data[i];
+                const pct = ((count / totalAgama) * 100).toFixed(1) + "%";
+                return {
+                  text: label + ": " + count + " (" + pct + ")",
+                  fillStyle: data.datasets[0].backgroundColor[i],
+                  strokeStyle: "#ffffff",
+                  lineWidth: 0,
+                  hidden: false,
+                  index: i,
+                };
+              });
+            },
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const pct = ((ctx.raw / totalAgama) * 100).toFixed(1) + "%";
+              return " " + ctx.label + ": " + ctx.raw + " orang (" + pct + ")";
+            },
+          },
+        },
+      },
+    },
+    plugins: [createCenterTextPlugin(String(totalAgama), "Total Warga")],
+  });
+}
